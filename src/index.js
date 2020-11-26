@@ -8,16 +8,15 @@ import {
 } from "three";
 import { OBJLoader } from "./lib/ObjLoader";
 import { MTLLoader } from "./lib/MTLLoader";
-import setup from "./setups/drudge_skulker";
+import setup from "./setups/dual_fragment";
 
 // Setup
 const width = 150;
 const height = 150;
 
-// Scene & Camera
+// Scene & Camewra
 const scene = new Scene();
 const camera = new PerspectiveCamera(75, width / height, 0.1, 1000);
-camera.translateY(setup.camera.translate.y);
 const ambientLight = new AmbientLight(0xffffff, 1);
 scene.add(ambientLight);
 
@@ -64,8 +63,9 @@ renderer.setSize(width, height);
 document.querySelectorAll("#portrait")[0].appendChild(renderer.domElement);
 
 // Touch-ups
-camera.position.z = 0.3;
-completeObject.rotation.x = 4.7;
+camera.position.z = setup.camera.position.z;
+completeObject.position.y = setup.object.position.y;
+completeObject.rotation.x = setup.object.rotation.x;
 
 const animate = function () {
   requestAnimationFrame(animate);
