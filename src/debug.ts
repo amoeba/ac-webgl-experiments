@@ -14,21 +14,19 @@ import {
 import { OBJLoader } from "./lib/ObjLoader";
 
 // Setup
-const width = 150;
-const height = 150;
+const width = 100;
+const height = 100;
 const defaultRotation = 2;
 const defaultCameraZ = 0.7;
-const defaultCameraTranslateY = 0.2;
 
 // Scene & Camera
 const scene = new Scene();
 const camera = new PerspectiveCamera(75, width / height, 0.1, 1000);
-camera.translateY(defaultCameraTranslateY);
 
-const ambientLight = new AmbientLight(0xffffff, 1);
+const ambientLight = new AmbientLight(0xcccccc, 1);
 scene.add(ambientLight);
 
-const pointLight = new PointLight(0xffffff, 0);
+const pointLight = new PointLight(0xffffff, 0.8);
 camera.add(pointLight);
 
 // Load the object
@@ -71,7 +69,7 @@ objLoader.load("/assets/01001A65-W6041.obj", function (obj) {
 // Renderer
 const renderer = new WebGLRenderer();
 renderer.setSize(width, height);
-document.querySelectorAll("#portrait")[0].appendChild(renderer.domElement);
+document.body.appendChild(renderer.domElement);
 
 camera.position.z = defaultCameraZ;
 
