@@ -12,18 +12,17 @@ import {
   PointLight,
 } from "three";
 import { OBJLoader } from "./lib/ObjLoader";
+import setup  from "./setups/dual_fragment";
 
 // Setup
 const width = 150;
 const height = 150;
-const defaultRotation = 2;
-const defaultCameraZ = 0.7;
-const defaultCameraTranslateY = 0.2;
+
 
 // Scene & Camera
 const scene = new Scene();
 const camera = new PerspectiveCamera(75, width / height, 0.1, 1000);
-camera.translateY(defaultCameraTranslateY);
+camera.translateY(setup.defaultCameraTranslateY);
 
 const ambientLight = new AmbientLight(0xffffff, 1);
 scene.add(ambientLight);
@@ -42,7 +41,7 @@ function loadModel() {
     }
   });
 
-  object.rotation.x = defaultRotation;
+  object.rotation.x = setup.defaultRotation;
   scene.add(object);
 }
 
@@ -55,14 +54,14 @@ manager.onProgress = function (item, loaded, total) {
 // Load our texture
 const texture = new Texture();
 const imageLoader = new ImageLoader(manager);
-imageLoader.load("/assets/06005E3B-W6041.png", function (image) {
+imageLoader.load(setup.texture, function (image) {
   texture.image = image;
   texture.needsUpdate = true;
 });
 
 // Load our model
 const objLoader = new OBJLoader(manager);
-objLoader.load("/assets/01001A65-W6041.obj", function (obj) {
+objLoader.load(setup.obj, function (obj) {
   console.log(obj);
 
   object = obj;
@@ -73,7 +72,7 @@ const renderer = new WebGLRenderer();
 renderer.setSize(width, height);
 document.querySelectorAll("#portrait")[0].appendChild(renderer.domElement);
 
-camera.position.z = defaultCameraZ;
+camera.position.z = setup.defaultCameraZ;
 
 const animate = function () {
   requestAnimationFrame(animate);
