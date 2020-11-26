@@ -12,7 +12,7 @@ import {
   Points,
   PointsMaterial,
   Vector3,
-} from "THREE";
+} from "three";
 
 var OBJLoader = (function () {
   // o object_name | g group_name
