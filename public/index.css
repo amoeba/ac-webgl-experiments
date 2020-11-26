@@ -14,12 +14,12 @@ body {
 #portrait {
   width: 150px;
   height: 150px;
-  background-color: pink;
+  background-color: black;
   clip-path: circle(75px at 75px 75px);
   border-radius: 75px;
 }
 
 #name {
   font-size: 300%;
-  font-family: Verdana, sans-serif
+  font-family: Verdana, sans-serif;
 }
