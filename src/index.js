@@ -24,11 +24,9 @@ const scene = new Scene();
 const camera = new PerspectiveCamera(75, width / height, 0.1, 1000);
 camera.translateY(setup.defaultCameraTranslateY);
 
-const ambientLight = new AmbientLight(0xffffff, 1);
+const ambientLight = new AmbientLight(0xffffff, 0);
 scene.add(ambientLight);
 
-const pointLight = new PointLight(0xffffff, 0);
-camera.add(pointLight);
 
 // Load the object
 let object; // Save a ref for callbacks to work with
@@ -74,6 +72,8 @@ document.querySelectorAll("#portrait")[0].appendChild(renderer.domElement);
 
 camera.position.z = setup.defaultCameraZ;
 
+let delta = 0.01;
+
 const animate = function () {
   requestAnimationFrame(animate);
 
@@ -81,6 +81,13 @@ const animate = function () {
     object.rotation.z += 0.01;
   }
 
+  if (ambientLight.intensity >= 1) {
+    delta = -0.01
+  } else if (ambientLight.intensity <= 0) {
+    delta = +0.01
+  }
+
+  ambientLight.intensity += delta;
   renderer.render(scene, camera);
 };
 
