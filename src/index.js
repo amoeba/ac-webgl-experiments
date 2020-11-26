@@ -2,92 +2,74 @@ import {
   Scene,
   PerspectiveCamera,
   WebGLRenderer,
-  BoxGeometry,
-  MeshBasicMaterial,
-  Mesh,
-  LoadingManager,
-  Texture,
-  ImageLoader,
   AmbientLight,
-  PointLight,
+  DoubleSide,
+  Object3D,
 } from "three";
-import { OBJLoader } from "./lib/ObjLoader";
-import setup  from "./setups/dual_fragment";
+import { OBJLoader } from "./lib/OBJLoader";
+import { MTLLoader } from "./lib/MTLLoader";
+import setup from "./setups/drudge_skulker";
 
 // Setup
 const width = 150;
 const height = 150;
 
-
 // Scene & Camera
 const scene = new Scene();
 const camera = new PerspectiveCamera(75, width / height, 0.1, 1000);
-camera.translateY(setup.defaultCameraTranslateY);
-
-const ambientLight = new AmbientLight(0xffffff, 0);
+camera.translateY(setup.camera.translate.y);
+const ambientLight = new AmbientLight(0xffffff, 1);
 scene.add(ambientLight);
 
-
 // Load the object
-let object; // Save a ref for callbacks to work with
+let completeObject = new Object3D(); // Save a ref for callbacks to work with
 
-// Set up the loader
-function loadModel() {
-  object.traverse(function (child) {
-    if (child.isMesh) {
-      child.material.map = texture;
+const mtlLoader = new MTLLoader();
+mtlLoader.setPath("/assets/mtl/");
+mtlLoader.load(setup.mtl, function (materials) {
+  console.log(materials);
+
+  materials.preload();
+
+  var loader = new OBJLoader();
+  loader.setPath("/assets/obj/");
+  loader.setMaterials(materials);
+
+  loader.load(
+    setup.obj,
+    function (object) {
+      object.traverse(function (child) {
+        if (child.material) {
+          child.material.side = DoubleSide;
+        }
+      });
+
+      object.updateMatrix();
+      completeObject.add(object);
+    },
+    function (a, b, c) {
+      console.log("update", a, b, c);
+    },
+    function (err) {
+      console.log("error", err);
     }
-  });
-
-  object.rotation.x = setup.defaultRotation;
-  scene.add(object);
-}
-
-const manager = new LoadingManager(loadModel);
-
-manager.onProgress = function (item, loaded, total) {
-  console.log(item, loaded, total);
-};
-
-// Load our texture
-const texture = new Texture();
-const imageLoader = new ImageLoader(manager);
-imageLoader.load(setup.texture, function (image) {
-  texture.image = image;
-  texture.needsUpdate = true;
+  );
 });
 
-// Load our model
-const objLoader = new OBJLoader(manager);
-objLoader.load(setup.obj, function (obj) {
-  console.log(obj);
-
-  object = obj;
-});
+scene.add(completeObject);
 
 // Renderer
 const renderer = new WebGLRenderer();
 renderer.setSize(width, height);
 document.querySelectorAll("#portrait")[0].appendChild(renderer.domElement);
 
-camera.position.z = setup.defaultCameraZ;
-
-let delta = 0.01;
+// Touch-ups
+camera.position.z = 0.3;
+completeObject.rotation.x = 4.7;
 
 const animate = function () {
   requestAnimationFrame(animate);
-
-  if (object) {
-    object.rotation.z += 0.01;
-  }
-
-  if (ambientLight.intensity >= 1) {
-    delta = -0.01
-  } else if (ambientLight.intensity <= 0) {
-    delta = +0.01
-  }
-
-  ambientLight.intensity += delta;
+  completeObject.rotation.z += 0.01;
   renderer.render(scene, camera);
 };
 
