@@ -6,7 +6,7 @@ import {
   DoubleSide,
   Object3D,
 } from "three";
-import { OBJLoader } from "./lib/OBJLoader";
+import { OBJLoader } from "./lib/ObjLoader";
 import { MTLLoader } from "./lib/MTLLoader";
 import setup from "./setups/drudge_skulker";
 
