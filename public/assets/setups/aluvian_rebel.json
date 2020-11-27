@@ -1,0 +1,17 @@
+{
+  "mtl": "0100005A-W36801.mtl",
+  "obj": "0100005A-W36801.obj",
+  "camera": {
+    "position": {
+      "z": 0.25
+    }
+  },
+  "object": {
+    "position": {
+      "y": -0.1
+    },
+    "rotation": {
+      "x": 4.7
+    }
+  }
+}

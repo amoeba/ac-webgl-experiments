@@ -1,0 +1,23 @@
+newmtl 08000B01
+illum 1
+map_Kd ../textures/060047AC-W36801.png
+
+newmtl 08000B02
+illum 1
+map_Kd ../textures/060047AD-W36801.png
+
+newmtl 08000B03
+illum 1
+map_Kd ../textures/060047AE-W36801.png
+
+newmtl 08000B04
+illum 1
+map_Kd ../textures/060047AF-W36801.png
+
+newmtl 08000B05
+illum 1
+map_Kd ../textures/060047B0-W36801.png
+
+newmtl 08000B06
+illum 1
+map_Kd ../textures/060047B1-W36801.png
