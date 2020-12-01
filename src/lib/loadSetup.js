@@ -39,12 +39,8 @@ const doLoadSetup = function (setup) {
         object.updateMatrix();
         completeObject.add(object);
       },
-      function (a, b, c) {
-        console.log("update", a, b, c);
-      },
-      function (err) {
-        console.log("error", err);
-      }
+      function (a, b, c) {},
+      function (err) {}
     );
   });
 
