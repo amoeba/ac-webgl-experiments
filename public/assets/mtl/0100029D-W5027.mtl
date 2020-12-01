@@ -1,0 +1,7 @@
+newmtl 08000361
+illum 1
+map_Kd ../textures/06003C7E-W5027.png
+
+newmtl 08000362
+illum 1
+map_Kd ../textures/06003C80-W5027.png

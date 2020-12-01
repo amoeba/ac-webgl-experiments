@@ -1,11 +1,11 @@
 {
-  "objects": ["drudge_skulker"],
+  "objects": ["brogords_axe"],
   "target": "#portrait",
   "width": 150,
   "height": 150,
   "camera": {
     "position": {
-      "z": 0.5
+      "z": 1.3
     }
   },
   "rotation": {

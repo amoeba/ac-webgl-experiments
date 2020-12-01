@@ -25,19 +25,30 @@ const findTarget = function (selector) {
 
 export default function (config = {}) {
   // Setup
-  const width = config.width || 600;
-  const height = config.height || 600;
+  const width = config.width || 150;
+  const height = config.height || 150;
 
   // Scene & Camewra
   const scene = new Scene();
-  const camera = new PerspectiveCamera(75, width / height, 0.1, 1000);
+  const camera = new PerspectiveCamera(45, width / height, 0.1, 1000);
 
+  camera.position.x =
+    (config.camera && config.camera.position && config.camera.position.x) || 0;
+  camera.position.y =
+    (config.camera && config.camera.position && config.camera.position.y) || 0;
+  camera.position.z =
+    (config.camera && config.camera.position && config.camera.position.z) || 0;
+
+  // Light
   const ambientLight = new AmbientLight(0xffffff, 1);
   scene.add(ambientLight);
 
+  // Object
+  let setups = [];
   config.objects.forEach(function (setup) {
     loadSetup(setup).then((object) => {
       scene.add(object);
+      setups.push(object);
     });
   });
 
@@ -48,17 +59,18 @@ export default function (config = {}) {
 
   // Controls
   const controls = new OrbitControls(camera, renderer.domElement);
-
-  camera.position.x = config.camera.position.x;
-  camera.position.y = config.camera.position.y;
-  camera.position.z = config.camera.position.z;
-
   controls.update();
 
+  // Animatioin
   const animate = function () {
-    requestAnimationFrame(animate);
+    setups.forEach((setup) => {
+      setup.rotation.z += config.rotation.dz;
+    });
+
     controls.update();
     renderer.render(scene, camera);
+
+    requestAnimationFrame(animate);
   };
 
   animate();
