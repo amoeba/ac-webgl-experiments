@@ -49,7 +49,10 @@ export default function (config = {}) {
   // Renderer
   const renderer = new WebGLRenderer();
   renderer.setSize(width, height);
-  findTarget(config.target).appendChild(renderer.domElement);
+
+  const target = findTarget(config.target);
+  target.parentElement.classList.remove("loading");
+  target.appendChild(renderer.domElement);
 
   // Controls
   const controls = new OrbitControls(camera, renderer.domElement);

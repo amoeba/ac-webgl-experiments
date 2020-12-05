@@ -14,12 +14,17 @@ header a {
   color: blue;
   text-decoration: none;
 }
+
 #portrait {
   border-radius: 100px;
   border: 3px solid darkblue;
   background-color: darkgoldenrod;
   padding: 10px;
   display: inline-block;
+}
+
+#portrait.loading {
+  display: none;
 }
 
 #inner {
