@@ -1,6 +1,6 @@
 {
   "objects": ["drudge_skulker"],
-  "target": "#portrait",
+  "target": "#inner",
   "width": 150,
   "height": 150,
   "camera": {

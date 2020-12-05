@@ -1,6 +1,6 @@
 {
   "objects": ["sparkling_dual_fragment_top", "sparkling_dual_fragment_bottom"],
-  "target": "#portrait",
+  "target": "#inner",
   "width": 150,
   "height": 150,
   "camera": {

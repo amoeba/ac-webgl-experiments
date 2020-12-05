@@ -1,6 +1,6 @@
 {
   "objects": ["brogords_axe"],
-  "target": "#portrait",
+  "target": "#inner",
   "width": 150,
   "height": 150,
   "camera": {

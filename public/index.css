@@ -14,7 +14,7 @@ header a {
   color: blue;
   text-decoration: none;
 }
-#wrapper {
+#portrait {
   border-radius: 100px;
   border: 3px solid darkblue;
   background-color: darkgoldenrod;
@@ -22,7 +22,7 @@ header a {
   display: inline-block;
 }
 
-#portrait {
+#inner {
   width: 150px;
   height: 150px;
   background-color: black;
