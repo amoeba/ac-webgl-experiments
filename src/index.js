@@ -11,6 +11,10 @@ const whichScene = function () {
   return parts[1];
 };
 
+const sceneUrl = function (name) {
+  return "/assets/scenes/" + name + ".json";
+};
+
 const init = function () {
   const scene_name = whichScene();
 
@@ -18,9 +22,9 @@ const init = function () {
     return;
   }
 
-  const scene = "/assets/scenes/" + scene_name + ".json";
+  const scene_url = sceneUrl(scene_name);
 
-  fetch(scene)
+  fetch(scene_url)
     .then((response) => {
       return response.json();
     })
