@@ -1,16 +1,14 @@
 {
-  "mtl": "0100005A-W36801.mtl",
-  "obj": "0100005A-W36801.obj",
-  "object": {
+  "objects": ["aluvian_rebel"],
+  "target": "#portrait",
+  "width": 150,
+  "height": 150,
+  "camera": {
     "position": {
-      "x": 0.0,
-      "y": -0.1,
-      "z": 0.0
-    },
-    "rotation": {
-      "x": 4.8,
-      "y": 0.0,
-      "z": 0.3
+      "z": 0.4
     }
+  },
+  "rotation": {
+    "dz": -0.01
   }
 }

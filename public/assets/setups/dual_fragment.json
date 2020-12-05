@@ -1,16 +1,14 @@
 {
-  "mtl": "01001A65-W6041.mtl",
-  "obj": "01001A65-W6041.obj",
-  "object": {
+  "objects": ["dual_fragment"],
+  "target": "#portrait",
+  "width": 150,
+  "height": 150,
+  "camera": {
     "position": {
-      "x": 0.0,
-      "y": -0.2,
-      "z": 0.0
-    },
-    "rotation": {
-      "x": 2,
-      "y": 0.0,
-      "z": 0.3
+      "z": 1
     }
+  },
+  "rotation": {
+    "dz": -0.01
   }
 }

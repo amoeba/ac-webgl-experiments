@@ -1,6 +1,6 @@
-import loadScene from "./lib/loadScene";
+import loadSetup from "./lib/loadSetup";
 
-const whichScene = function () {
+const whichSetup = function () {
   const params = window.location.search;
   const parts = params.split("=");
 
@@ -11,25 +11,25 @@ const whichScene = function () {
   return parts[1];
 };
 
-const sceneUrl = function (name) {
-  return "/assets/scenes/" + name + ".json";
+const setupUrl = function (name) {
+  return "/assets/setups/" + name + ".json";
 };
 
 const init = function () {
-  const scene_name = whichScene();
+  const setup_name = whichSetup();
 
-  if (!scene_name) {
+  if (!setup_name) {
     return;
   }
 
-  const scene_url = sceneUrl(scene_name);
+  const setup_url = setupUrl(setup_name);
 
-  fetch(scene_url)
+  fetch(setup_url)
     .then((response) => {
       return response.json();
     })
-    .then((scene) => {
-      loadScene(scene);
+    .then((setup) => {
+      loadSetup(setup);
     });
 };
 

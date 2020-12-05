@@ -1,16 +1,14 @@
 {
-  "mtl": "0100029D-W5027.mtl",
-  "obj": "0100029D-W5027.obj",
-  "object": {
+  "objects": ["brogords_axe"],
+  "target": "#portrait",
+  "width": 150,
+  "height": 150,
+  "camera": {
     "position": {
-      "x": 0,
-      "y": -0.3,
-      "z": 0
-    },
-    "rotation": {
-      "x": -1,
-      "y": 0,
-      "z": 1.5
+      "z": 1.3
     }
+  },
+  "rotation": {
+    "dz": -0.01
   }
 }
