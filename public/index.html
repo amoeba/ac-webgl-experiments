@@ -1,62 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" type="text/css" href="/index.css" />
-    <title>acwebglexperiments</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
 
-    <header>
-      <h1><a href="/">ac-webgl-experiments</a></h1>
-    </header>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="/index.css" />
+  <title>acwebglexperiments</title>
+</head>
 
-    <p>Choose from the models below. Controls are:
-      <ul>
-        <li>Left-click and drag to rotate</li>
-        <li>Right-click and drag to pan</li>
-        <li>Mouse wheel to zoom in/out</li>
-      </ul>
-    </p>
-    <p>
-      There are bugs. I've hard-coded things. This is all just a demo.
-    </p>
-    <p>Models</p>
-    <ul>
-      <li>
-        <a href="/?scene=drudge_skulker">Drudge Skulker</a>
-      </li>
-      <li>
-        <a href="/?scene=wood_golem">Wood Golem</a>
-      </li>
-      <li>
-        <a href="/?scene=sparkling_dual_fragment">Sparkling Dual Fragment</a>
-      </li>
-      <li>
-        <a href="/?scene=aluvian_rebel">Aluvian Rebel</a>
-      </li>
-      <li>
-        <a href="/?scene=olthoi_helm">Olthoi Helm</a>
-      </li>
-      <li>
-        <a href="/?scene=aluvian_rebel_with_olthoi_helm">Aluvian Rebel w/ PP Olthoi Helm</a>
-      </li>
-      <li>
-        <a href="/?scene=brogords_axe">Brogord's Axe</a>
-      </li>
-    </ul>
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
 
-    <div id="placeholder">
-      <div id="wrapper">
-        <div id="portrait">
+  <header>
+    <h1><a href="/">ac-webgl-experiments</a></h1>
+  </header>
+
+  <p>Choose from the models below. Controls are:
+  <ul>
+    <li>Left-click and drag to rotate</li>
+    <li>Right-click and drag to pan</li>
+    <li>Mouse wheel to zoom in/out</li>
+  </ul>
+  </p>
+  <p>
+    There are bugs. I've hard-coded things. This is all just a demo.
+  </p>
+  <div class="viewer">
+    <div class="viewer-header">Models</div>
+    <div class="viewer-content">
+      <div class="menu">
+        <ul>
+          <li>
+            <a href="/?scene=drudge_skulker">Drudge Skulker</a>
+          </li>
+          <li>
+            <a href="/?scene=wood_golem">Wood Golem</a>
+          </li>
+          <li>
+            <a href="/?scene=sparkling_dual_fragment">Sparkling Dual Fragment</a>
+          </li>
+          <li>
+            <a href="/?scene=aluvian_rebel">Aluvian Rebel</a>
+          </li>
+          <li>
+            <a href="/?scene=olthoi_helm">Olthoi Helm</a>
+          </li>
+          <li>
+            <a href="/?scene=aluvian_rebel_with_olthoi_helm">Aluvian Rebel w/ PP Olthoi Helm</a>
+          </li>
+          <li>
+            <a href="/?scene=brogords_axe">Brogord's Axe</a>
+          </li>
+        </ul>
+      </div>
+      <div class="webgl">
+        <div id="placeholder">
+          <div id="wrapper">
+            <div id="portrait">
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </div>
+  <script type="module" src="/_dist_/index.js"></script>
+</body>
 
-
-    <script type="module" src="/_dist_/index.js"></script>
-  </body>
 </html>
