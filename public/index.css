@@ -44,6 +44,7 @@ header a {
   border: 1px solid #ccc;
   border-radius: 5px;
   max-width: 600px;
+  margin-bottom: 0.5rem;
 }
 
 .viewer-header {
