@@ -1,0 +1,14 @@
+{
+  "objects": ["sparkling_dual_fragment_top", "sparkling_dual_fragment_bottom"],
+  "target": "#portrait",
+  "width": 150,
+  "height": 150,
+  "camera": {
+    "position": {
+      "z": 2
+    }
+  },
+  "rotation": {
+    "dz": -0.01
+  }
+}
