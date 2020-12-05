@@ -56,10 +56,13 @@ header a {
 .viewer-content {
   display: grid;
   grid-template-columns: 2fr 1fr;
+}
+
+.viewer-content div {
   border-right: 1px solid #ccc;
 }
 
-.body:last-child {
+.viewer-content div:last-child {
   border: none;
   text-align: right;
 }
